@@ -11,24 +11,24 @@ public class ObstacleSpawner : MonoBehaviour
     [SerializeField] private float decreaseTime = 0.05f;
     [SerializeField] private float minTime = 0.65f;
 
-    private float timeBetweenSpawn;
-
-    private void Update()
+    private void Start()
     {
-        if (timeBetweenSpawn <= 0)
-        {
-            int random = Random.Range(0, obstaclePatterns.Length);
-            Instantiate(obstaclePatterns[random], transform.position, Quaternion.identity);
-            timeBetweenSpawn = startTimeBetweenSpawn;
+        StartCoroutine(StartSpawn(startTimeBetweenSpawn));
+    }
 
-            if (startTimeBetweenSpawn > minTime)
-            {
-                startTimeBetweenSpawn -= decreaseTime;
-            }
-        }
-        else
+    private IEnumerator StartSpawn(float waitTime)
+    {
+        int random = Random.Range(0, obstaclePatterns.Length);
+        Instantiate(obstaclePatterns[random], transform.position, Quaternion.identity);
+
+
+        yield return new WaitForSeconds(waitTime);
+
+        if (waitTime > minTime)
         {
-            timeBetweenSpawn -= Time.deltaTime;
+            waitTime -= decreaseTime;
         }
+
+        StartCoroutine(StartSpawn(waitTime));
     }
 }

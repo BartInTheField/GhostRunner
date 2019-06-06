@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 7638588877329023648}
   - component: {fileID: 7638588877329023653}
   - component: {fileID: 7638588877329023654}
+  - component: {fileID: -2767521294063229445}
   m_Layer: 0
   m_Name: Obstacle
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -111,3 +112,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   speed: 8
+  deadEffect: {fileID: 456519883928434466, guid: b888aa46259d8cd45af2cd17b60fff60,
+    type: 3}
+  deadSound: {fileID: 5073121952659837637, guid: 3434e9f0f5194c646825948ee7f621a1,
+    type: 3}
+--- !u!114 &-2767521294063229445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7638588877329023649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96bbcd2eba5507643bb412286ce1a496, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifetime: 10
